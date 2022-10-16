@@ -3,6 +3,7 @@ package com.timzowen.sms.controller;
 import com.timzowen.sms.service.StudentService;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.GetMapping;
 
 @Controller
 public class StudentController {
@@ -14,8 +15,9 @@ public class StudentController {
         this.studentService = studentService;
     }
 
+    @GetMapping("/students")
     public String listStudents(Model model){
-        model.addAttribute("s",studentService.getAllStudents());
+        model.addAttribute("students",studentService.getAllStudents());
         return "students";
     }
 
