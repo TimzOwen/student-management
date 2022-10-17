@@ -5,10 +5,7 @@ import com.timzowen.sms.entity.Student;
 import com.timzowen.sms.service.StudentService;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.ModelAttribute;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.*;
 
 @Controller
 public class StudentController {
@@ -56,6 +53,12 @@ public class StudentController {
         existingStudent.setLastName(student.getLastName());
         existingStudent.setEmail(student.getEmail());
         studentService.updateStudent(existingStudent);
+        return "redirect:/students";
+    }
+
+    @GetMapping("/students/{id}")
+    public String deleteStudent(@PathVariable("id") Long id){
+        studentService.deleteStudentById(id);
         return "redirect:/students";
     }
 
