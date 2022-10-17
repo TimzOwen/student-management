@@ -26,4 +26,11 @@ public class StudentServiceImpl implements StudentService {
     public Student saveStudent(Student student) {
         return studentRepository.save(student);
     }
+
+
+//    public Student getStudent(Long id) {
+//        studentRepository.findById(id).orElseThrow(()->
+//                Exception);
+//        return null;
+//    }
 }
